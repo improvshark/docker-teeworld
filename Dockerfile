@@ -1,4 +1,4 @@
-FROM ubuntu:14.10
+FROM ubuntu:14.04
 
 # Install base packages
 RUN apt-get update
@@ -27,8 +27,10 @@ RUN ../bam-0.4.0/bam server_release
 # add config file
 ADD server.cfg /opt/teeworld/server.cfg
 
+VOLUME /opt/teeworld
+
 #define ports
-EXPOSE 8303/udp
-EXPOSE 8304
+#EXPOSE 8303/udp
+#EXPOSE 8304
 # Define default command
 CMD ["/opt/teeworld/teeworlds-0.6.3-src/teeworlds_srv", "-f", "/opt/teeworld/server.cfg"]

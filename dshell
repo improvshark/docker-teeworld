@@ -1,0 +1,1 @@
+docker run -it --volumes-from $1 busybox
